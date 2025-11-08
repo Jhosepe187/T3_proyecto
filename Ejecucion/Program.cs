@@ -11,6 +11,7 @@ namespace Ejecucion
         static void Main(string[] args)
         {
             Console.WriteLine("HOLA MUNDO");
+            Console.BackgroundColor = ConsoleColor.Green;
         }
     }
 }
