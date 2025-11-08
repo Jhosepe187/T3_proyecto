@@ -12,6 +12,7 @@ namespace Ejecucion
         {
             Console.WriteLine("HOLA MUNDO");
             Console.BackgroundColor = ConsoleColor.Green;
+            Console.ReadLine();
         }
     }
 }
