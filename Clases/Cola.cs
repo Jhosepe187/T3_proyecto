@@ -11,14 +11,12 @@ namespace Clases
     {
         public Nodo frente = null;
         public Nodo final = null;
-
-        public void Encolar(int p)
+        public void Encolar(Material material, int clave)
         {
-            //1. Crear nuevo Nodo
             Nodo nuevo = new Nodo();
-            nuevo.dato = p;
+            nuevo.datoMaterial = material;
+            nuevo.claveClasificacion = clave; 
 
-            //2. encolar
             if (frente == null)
             {
                 frente = nuevo;
@@ -29,39 +27,38 @@ namespace Clases
                 final.sig = nuevo;
                 final = nuevo;
             }
-
+            Console.WriteLine($"Material registrado en la cola: {material.Nombre}");
         }
-
-        public int Desencolar()
+        public Nodo Desencolar()
         {
             if (frente != null)
             {
-                int p = frente.dato;
-
+                Nodo nodoAProcesar = frente;
                 frente = frente.sig;
-
-                return p;
+                if (frente == null)
+                {
+                    final = null; 
+                }
+                Console.WriteLine($"Material desencolado para procesamiento: {nodoAProcesar.datoMaterial.Nombre}");
+                return nodoAProcesar;
             }
-            return;
+            return null; 
         }
 
         public bool EsVacio()
         {
-            if (frente == null)
-            {
-                return true;
-            }
-            return false;
+            return frente == null;
         }
-        public int MostrarCola()
+        public void MostrarFrente()
         {
             if (frente != null)
             {
-                return frente.dato;
+                Console.WriteLine($"Material en el Frente de la Cola (Pendiente): {frente.datoMaterial.ToString()}");
             }
-            return;
+            else
+            {
+                Console.WriteLine("La cola de materiales pendientes está vacía.");
+            }
         }
-
-
     }
 }

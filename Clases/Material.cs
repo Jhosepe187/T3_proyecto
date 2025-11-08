@@ -8,15 +8,23 @@ namespace Clases
 {
     public class Material
     {
-        string tipo;
-        int Peso;
-        string proveniencia;
+        public string Nombre { get; set; } 
+        public string Tipo { get; set; }  
+        public int Peso { get; set; }    
 
-        public Material(string tipo, int peso, string proveniencia)
+
+        public Material(string nombre, string tipo, int peso)
         {
-            this.tipo = tipo;
+            Nombre = nombre;
+            Tipo = tipo;
             Peso = peso;
-            this.proveniencia = proveniencia;
+
+        }
+
+
+        public override string ToString()
+        {
+            return $"Nombre: {Nombre}, Tipo: {Tipo}, Peso: {Peso}g, ";
         }
     }
 }

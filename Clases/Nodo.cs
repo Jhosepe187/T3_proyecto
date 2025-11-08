@@ -8,10 +8,12 @@ namespace Clases
 {
     public class Nodo
     {
-        public int dato;
+        public Material datoMaterial; 
+        public int claveClasificacion; 
+
         public Nodo izq = null;
         public Nodo der = null;
-        public Nodo sig = null;
 
+        public Nodo sig = null;
     }
 }

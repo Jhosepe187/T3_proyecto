@@ -10,158 +10,58 @@ namespace Clases
     {
         public Nodo raiz_principal = null;
 
-        private void insertar(ref Nodo raiz, int d)
+        private void InsertarRecursivo(ref Nodo raiz, Material material, int clave)
         {
             if (raiz == null)
             {
                 Nodo nuevo = new Nodo();
-                nuevo.dato = d;
-
+                nuevo.datoMaterial = material;
+                nuevo.claveClasificacion = clave;
                 raiz = nuevo;
             }
             else
             {
-                if (d < raiz.dato)
+                if (clave < raiz.claveClasificacion)
                 {
-                    insertar(ref raiz.izq, d);
+                    InsertarRecursivo(ref raiz.izq, material, clave);
                 }
-                else if (d > raiz.dato)
+                else if (clave > raiz.claveClasificacion)
                 {
-
-                    insertar(ref raiz.der, d);
+                    InsertarRecursivo(ref raiz.der, material, clave);
                 }
                 else
                 {
-                    Console.WriteLine("Dato duplicado");
+                    Console.WriteLine($"Clave de clasificación duplicada: {clave}. Material '{material.Nombre}' no insertado.");
                 }
             }
         }
-        public void Insertar(int d)
+
+        public void Insertar(Material material, int clave)
         {
-            insertar(ref raiz_principal, d);
+            InsertarRecursivo(ref raiz_principal, material, clave);
+            Console.WriteLine($"Material clasificado en el Árbol con clave {clave}: {material.Nombre}");
         }
 
-        private void dibujar(Nodo raiz, int nivel)
+        public void MostrarInorden(Nodo raiz)
         {
             if (raiz != null)
             {
-                dibujar(raiz.der, nivel + 1);
-                for (int i = 0; i < nivel; i++)
-                {
-                    Console.Write("    ");
-                }
-                Console.WriteLine(raiz.dato);
-                dibujar(raiz.izq, nivel + 1);
+                MostrarInorden(raiz.izq);
+                Console.WriteLine($"- Clave: {raiz.claveClasificacion}, {raiz.datoMaterial.ToString()}");
+                MostrarInorden(raiz.der);
             }
         }
-        public void Dibujar()
+        public void MostrarHistorialArbol()
         {
-            dibujar(raiz_principal, 0);
-        }
-
-        private void buscar(Nodo raiz, int d)
-        {
-            if (raiz == null)
+            if (raiz_principal == null)
             {
-                Console.WriteLine("No encontrado");
+                Console.WriteLine("El Árbol de clasificación está vacío.");
             }
             else
             {
-                if (d < raiz.dato)
-                {
-                    buscar(raiz.izq, d);
-                }
-                else if (d > raiz.dato)
-                {
-
-                    buscar(raiz.der, d);
-                }
-                else
-                {
-                    Console.WriteLine("Dato encontrado");
-                }
+                Console.WriteLine("\nHistorial de Materiales Clasificados (Ordenado por Clave):");
+                MostrarInorden(raiz_principal);
             }
         }
-
-        public void Buscar(int d)
-        {
-            buscar(raiz_principal, d);
-        }
-        private void eliminar(ref Nodo raiz, int d)
-        {
-            if (raiz == null)
-            {
-                Console.WriteLine("No encontrado");
-            }
-            else
-            {
-                if (d < raiz.dato)
-                {
-                    eliminar(ref raiz.izq, d);
-                }
-                else if (d > raiz.dato)
-                {
-
-                    eliminar(ref raiz.der, d);
-                }
-                else
-                {
-                    if (raiz.izq == null && raiz.der == null)
-                    {
-                        raiz = null;
-                    }
-                    else if (raiz.izq != null && raiz.der == null)
-                    {
-
-                        Nodo temp = BuscarMayor(raiz.izq);
-
-                        int aux = temp.dato;
-                        temp.dato = raiz.dato;
-                        raiz.dato = aux;
-
-                        eliminar(ref raiz.izq, d);
-                    }
-                    else
-                    {
-
-                        Nodo temp = BuscarMenor(raiz.der);
-
-                        int aux = temp.dato;
-                        temp.dato = raiz.dato;
-                        raiz.dato = aux;
-
-                        eliminar(ref raiz.der, d);
-                    }
-                }
-            }
-        }
-        public void Eliminar(int d)
-        {
-            eliminar(ref raiz_principal, d);
-        }
-
-        private Nodo BuscarMayor(Nodo raiz)
-        {
-            if (raiz.der == null)
-            {
-                return raiz;
-            }
-            else
-            {
-                return BuscarMayor(raiz.der);
-            }
-        }
-        private Nodo BuscarMenor(Nodo raiz)
-        {
-            if (raiz.izq == null)
-            {
-                return raiz;
-            }
-            else
-            {
-                return BuscarMenor(raiz.izq);
-            }
-        }
-
     }
 }

@@ -9,34 +9,28 @@ namespace Clases
     public class Pila
     {
         public Nodo cima = null;
-        //apilar
-        public void apilar(int d)
+        public void Apilar(Material material)
         {
-            //1. Crear nodo
             Nodo nuevo = new Nodo();
-            nuevo.dato = d;
+            nuevo.datoMaterial = material;
 
             nuevo.sig = cima;
             cima = nuevo;
         }
-        //desapilar
-        public int desapilar()
+        public Material Desapilar()
         {
             if (cima != null)
             {
-                int dato = cima.dato;
-
+                Material dato = cima.datoMaterial;
                 cima = cima.sig;
-
                 return dato;
             }
-            else
-            {
-                
-            }
-
+            return null; 
         }
 
-
+        public bool EsVacio()
+        {
+            return cima == null;
+        }
     }
 }
