@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Arbol.cs" />
     <Compile Include="Cola.cs" />
+    <Compile Include="Material.cs" />
     <Compile Include="Nodo.cs" />
     <Compile Include="Pila.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
