@@ -12,7 +12,7 @@ namespace Clases
         public Nodo frente = null;
         public Nodo final = null;
 
-        public void Encolar(int p)
+        public void Encolar(Material p)
         {
             //1. Crear nuevo Nodo
             Nodo nuevo = new Nodo();
@@ -32,17 +32,17 @@ namespace Clases
 
         }
 
-        public int Desencolar()
+        public Material Desencolar()
         {
             if (frente != null)
             {
-                int p = frente.dato;
+                Material p = frente.dato;
 
                 frente = frente.sig;
 
                 return p;
             }
-            return;
+            return null;
         }
 
         public bool EsVacio()
@@ -53,13 +53,15 @@ namespace Clases
             }
             return false;
         }
-        public int MostrarCola()
+        public void MostrarCola()
         {
-            if (frente != null)
+            Nodo aux = frente;
+            while (aux != null)
             {
-                return frente.dato;
+                Console.WriteLine(aux.dato);
+                aux = aux.sig;
             }
-            return;
+
         }
 
 

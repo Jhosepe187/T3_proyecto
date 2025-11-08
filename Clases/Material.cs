@@ -8,15 +8,40 @@ namespace Clases
 {
     public class Material
     {
-        string tipo;
-        int Peso;
-        string proveniencia;
+        public string Tipo { get; set; }
+        public string Nombre { get; set; }
+        public int CodigoTipo { get; set; }
 
-        public Material(string tipo, int peso, string proveniencia)
+        public Material(string tipo, string nombre)
         {
-            this.tipo = tipo;
-            Peso = peso;
-            this.proveniencia = proveniencia;
+            Tipo = tipo;
+            Nombre = nombre;
+            CodigoTipo = AsignarCodigo(tipo);
+        }
+
+        private int AsignarCodigo(string tipo)
+        {
+            tipo = tipo.ToLower();
+            switch (tipo)
+            {
+                case "plastico":
+                case "plástico":
+                    return 1;
+                case "vidrio":
+                    return 2;
+                case "papel":
+                    return 3;
+                case "metal":
+                    return 4;
+                default:
+                    return 0; 
+            }
+        }
+
+        public override string ToString()
+        {
+            return $"{CodigoTipo} - {Tipo} - {Nombre}";
         }
     }
 }
+
