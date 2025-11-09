@@ -29,17 +29,20 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.btton_RegistrarMaterial = new System.Windows.Forms.Button();
-            this.bttn_MostrarMaterialesClasificados = new System.Windows.Forms.Button();
-            this.bttn_MostrarHistorial = new System.Windows.Forms.Button();
-            this.bttn_MostrarColaDeMateriales = new System.Windows.Forms.Button();
-            this.bttn_ProcesarMateriales = new System.Windows.Forms.Button();
+            this.btnRegistrarMaterial = new System.Windows.Forms.Button();
+            this.btnClasificados = new System.Windows.Forms.Button();
+            this.btnHistorial = new System.Windows.Forms.Button();
+            this.btnMostrarCola = new System.Windows.Forms.Button();
+            this.btnProcesar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lbl_Resgitrar1 = new System.Windows.Forms.Label();
-            this.txtBox_TipoMaterial = new System.Windows.Forms.TextBox();
-            this.grpRegistrar1 = new System.Windows.Forms.GroupBox();
+            this.txtTipo = new System.Windows.Forms.TextBox();
+            this.grpRegistrar = new System.Windows.Forms.GroupBox();
+            this.txtSalida = new System.Windows.Forms.TextBox();
+            this.btnRegistrar = new System.Windows.Forms.Button();
+            this.txtNombre = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
-            this.grpRegistrar1.SuspendLayout();
+            this.grpRegistrar.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -53,59 +56,63 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "SISTEMA DE RECICLAJE";
             // 
-            // btton_RegistrarMaterial
+            // btnRegistrarMaterial
             // 
-            this.btton_RegistrarMaterial.Location = new System.Drawing.Point(6, 29);
-            this.btton_RegistrarMaterial.Name = "btton_RegistrarMaterial";
-            this.btton_RegistrarMaterial.Size = new System.Drawing.Size(178, 36);
-            this.btton_RegistrarMaterial.TabIndex = 1;
-            this.btton_RegistrarMaterial.Text = "Registrar Material";
-            this.btton_RegistrarMaterial.UseVisualStyleBackColor = true;
-            this.btton_RegistrarMaterial.Click += new System.EventHandler(this.btton_RegistrarMaterial_Click);
+            this.btnRegistrarMaterial.Location = new System.Drawing.Point(6, 29);
+            this.btnRegistrarMaterial.Name = "btnRegistrarMaterial";
+            this.btnRegistrarMaterial.Size = new System.Drawing.Size(178, 36);
+            this.btnRegistrarMaterial.TabIndex = 1;
+            this.btnRegistrarMaterial.Text = "Registrar Material";
+            this.btnRegistrarMaterial.UseVisualStyleBackColor = true;
+            this.btnRegistrarMaterial.Click += new System.EventHandler(this.btnRegistrarMaterial_Click);
             // 
-            // bttn_MostrarMaterialesClasificados
+            // btnClasificados
             // 
-            this.bttn_MostrarMaterialesClasificados.Location = new System.Drawing.Point(6, 183);
-            this.bttn_MostrarMaterialesClasificados.Name = "bttn_MostrarMaterialesClasificados";
-            this.bttn_MostrarMaterialesClasificados.Size = new System.Drawing.Size(178, 36);
-            this.bttn_MostrarMaterialesClasificados.TabIndex = 2;
-            this.bttn_MostrarMaterialesClasificados.Text = "Mostrar Materiales Clasificados";
-            this.bttn_MostrarMaterialesClasificados.UseVisualStyleBackColor = true;
+            this.btnClasificados.Location = new System.Drawing.Point(6, 183);
+            this.btnClasificados.Name = "btnClasificados";
+            this.btnClasificados.Size = new System.Drawing.Size(178, 36);
+            this.btnClasificados.TabIndex = 2;
+            this.btnClasificados.Text = "Mostrar Materiales Clasificados";
+            this.btnClasificados.UseVisualStyleBackColor = true;
+            this.btnClasificados.Click += new System.EventHandler(this.btnClasificados_Click);
             // 
-            // bttn_MostrarHistorial
+            // btnHistorial
             // 
-            this.bttn_MostrarHistorial.Location = new System.Drawing.Point(6, 234);
-            this.bttn_MostrarHistorial.Name = "bttn_MostrarHistorial";
-            this.bttn_MostrarHistorial.Size = new System.Drawing.Size(178, 36);
-            this.bttn_MostrarHistorial.TabIndex = 3;
-            this.bttn_MostrarHistorial.Text = "Mostrar Historial";
-            this.bttn_MostrarHistorial.UseVisualStyleBackColor = true;
+            this.btnHistorial.Location = new System.Drawing.Point(6, 234);
+            this.btnHistorial.Name = "btnHistorial";
+            this.btnHistorial.Size = new System.Drawing.Size(178, 36);
+            this.btnHistorial.TabIndex = 3;
+            this.btnHistorial.Text = "Mostrar Historial";
+            this.btnHistorial.UseVisualStyleBackColor = true;
+            this.btnHistorial.Click += new System.EventHandler(this.btnHistorial_Click);
             // 
-            // bttn_MostrarColaDeMateriales
+            // btnMostrarCola
             // 
-            this.bttn_MostrarColaDeMateriales.Location = new System.Drawing.Point(6, 132);
-            this.bttn_MostrarColaDeMateriales.Name = "bttn_MostrarColaDeMateriales";
-            this.bttn_MostrarColaDeMateriales.Size = new System.Drawing.Size(178, 36);
-            this.bttn_MostrarColaDeMateriales.TabIndex = 4;
-            this.bttn_MostrarColaDeMateriales.Text = "Mostrar Cola de Materiales";
-            this.bttn_MostrarColaDeMateriales.UseVisualStyleBackColor = true;
+            this.btnMostrarCola.Location = new System.Drawing.Point(6, 132);
+            this.btnMostrarCola.Name = "btnMostrarCola";
+            this.btnMostrarCola.Size = new System.Drawing.Size(178, 36);
+            this.btnMostrarCola.TabIndex = 4;
+            this.btnMostrarCola.Text = "Mostrar Cola de Materiales";
+            this.btnMostrarCola.UseVisualStyleBackColor = true;
+            this.btnMostrarCola.Click += new System.EventHandler(this.btnMostrarCola_Click);
             // 
-            // bttn_ProcesarMateriales
+            // btnProcesar
             // 
-            this.bttn_ProcesarMateriales.Location = new System.Drawing.Point(6, 80);
-            this.bttn_ProcesarMateriales.Name = "bttn_ProcesarMateriales";
-            this.bttn_ProcesarMateriales.Size = new System.Drawing.Size(178, 36);
-            this.bttn_ProcesarMateriales.TabIndex = 5;
-            this.bttn_ProcesarMateriales.Text = "Procesar materiales";
-            this.bttn_ProcesarMateriales.UseVisualStyleBackColor = true;
+            this.btnProcesar.Location = new System.Drawing.Point(6, 80);
+            this.btnProcesar.Name = "btnProcesar";
+            this.btnProcesar.Size = new System.Drawing.Size(178, 36);
+            this.btnProcesar.TabIndex = 5;
+            this.btnProcesar.Text = "Procesar materiales";
+            this.btnProcesar.UseVisualStyleBackColor = true;
+            this.btnProcesar.Click += new System.EventHandler(this.btnProcesar_Click);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btton_RegistrarMaterial);
-            this.groupBox1.Controls.Add(this.bttn_MostrarHistorial);
-            this.groupBox1.Controls.Add(this.bttn_MostrarColaDeMateriales);
-            this.groupBox1.Controls.Add(this.bttn_ProcesarMateriales);
-            this.groupBox1.Controls.Add(this.bttn_MostrarMaterialesClasificados);
+            this.groupBox1.Controls.Add(this.btnRegistrarMaterial);
+            this.groupBox1.Controls.Add(this.btnHistorial);
+            this.groupBox1.Controls.Add(this.btnMostrarCola);
+            this.groupBox1.Controls.Add(this.btnProcesar);
+            this.groupBox1.Controls.Add(this.btnClasificados);
             this.groupBox1.Location = new System.Drawing.Point(42, 62);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(190, 286);
@@ -116,44 +123,74 @@
             // lbl_Resgitrar1
             // 
             this.lbl_Resgitrar1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.lbl_Resgitrar1.Location = new System.Drawing.Point(6, 16);
+            this.lbl_Resgitrar1.Location = new System.Drawing.Point(6, 26);
             this.lbl_Resgitrar1.Name = "lbl_Resgitrar1";
-            this.lbl_Resgitrar1.Size = new System.Drawing.Size(342, 212);
+            this.lbl_Resgitrar1.Size = new System.Drawing.Size(211, 212);
             this.lbl_Resgitrar1.TabIndex = 7;
-            this.lbl_Resgitrar1.Text = "                        REGISTRAR NUEVO MATERIAL\r\n Tipos disponibles:\r\n\r\n1. Plást" +
-    "ico\r\n\r\n2. Vidrio\r\n\r\n3. Papel\r\n\r\n4. Metal\r\n\r\nIngrese el tipo de Material (1-4)\r\n";
+            this.lbl_Resgitrar1.Text = "Tipos de material disponibles:\r\n\r\n1. Plástico\r\n2. Vidrio\r\n3. Papel\r\n4. Metal\r\n\r\nI" +
+    "ngrese el tipo de Material (1-4):\r\n\r\nIngrese el nombre del Material:\r\n";
             // 
-            // txtBox_TipoMaterial
+            // txtTipo
             // 
-            this.txtBox_TipoMaterial.Location = new System.Drawing.Point(9, 234);
-            this.txtBox_TipoMaterial.Name = "txtBox_TipoMaterial";
-            this.txtBox_TipoMaterial.Size = new System.Drawing.Size(68, 20);
-            this.txtBox_TipoMaterial.TabIndex = 8;
+            this.txtTipo.Location = new System.Drawing.Point(223, 145);
+            this.txtTipo.Name = "txtTipo";
+            this.txtTipo.Size = new System.Drawing.Size(68, 20);
+            this.txtTipo.TabIndex = 8;
             // 
-            // grpRegistrar1
+            // grpRegistrar
             // 
-            this.grpRegistrar1.Controls.Add(this.lbl_Resgitrar1);
-            this.grpRegistrar1.Controls.Add(this.txtBox_TipoMaterial);
-            this.grpRegistrar1.Location = new System.Drawing.Point(288, 65);
-            this.grpRegistrar1.Name = "grpRegistrar1";
-            this.grpRegistrar1.Size = new System.Drawing.Size(385, 283);
-            this.grpRegistrar1.TabIndex = 9;
-            this.grpRegistrar1.TabStop = false;
+            this.grpRegistrar.Controls.Add(this.txtSalida);
+            this.grpRegistrar.Controls.Add(this.btnRegistrar);
+            this.grpRegistrar.Controls.Add(this.txtNombre);
+            this.grpRegistrar.Controls.Add(this.lbl_Resgitrar1);
+            this.grpRegistrar.Controls.Add(this.txtTipo);
+            this.grpRegistrar.Location = new System.Drawing.Point(249, 65);
+            this.grpRegistrar.Name = "grpRegistrar";
+            this.grpRegistrar.Size = new System.Drawing.Size(385, 283);
+            this.grpRegistrar.TabIndex = 9;
+            this.grpRegistrar.TabStop = false;
+            // 
+            // txtSalida
+            // 
+            this.txtSalida.Location = new System.Drawing.Point(0, -3);
+            this.txtSalida.Multiline = true;
+            this.txtSalida.Name = "txtSalida";
+            this.txtSalida.ReadOnly = true;
+            this.txtSalida.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtSalida.Size = new System.Drawing.Size(385, 283);
+            this.txtSalida.TabIndex = 10;
+            // 
+            // btnRegistrar
+            // 
+            this.btnRegistrar.Location = new System.Drawing.Point(141, 228);
+            this.btnRegistrar.Name = "btnRegistrar";
+            this.btnRegistrar.Size = new System.Drawing.Size(117, 38);
+            this.btnRegistrar.TabIndex = 10;
+            this.btnRegistrar.Text = "Confirmar";
+            this.btnRegistrar.UseVisualStyleBackColor = true;
+            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.Location = new System.Drawing.Point(223, 180);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(123, 20);
+            this.txtNombre.TabIndex = 9;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ClientSize = new System.Drawing.Size(757, 389);
-            this.Controls.Add(this.grpRegistrar1);
+            this.ClientSize = new System.Drawing.Size(708, 389);
+            this.Controls.Add(this.grpRegistrar);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.Text = "Form1";
             this.groupBox1.ResumeLayout(false);
-            this.grpRegistrar1.ResumeLayout(false);
-            this.grpRegistrar1.PerformLayout();
+            this.grpRegistrar.ResumeLayout(false);
+            this.grpRegistrar.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -161,15 +198,18 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btton_RegistrarMaterial;
-        private System.Windows.Forms.Button bttn_MostrarMaterialesClasificados;
-        private System.Windows.Forms.Button bttn_MostrarHistorial;
-        private System.Windows.Forms.Button bttn_MostrarColaDeMateriales;
-        private System.Windows.Forms.Button bttn_ProcesarMateriales;
+        private System.Windows.Forms.Button btnRegistrarMaterial;
+        private System.Windows.Forms.Button btnClasificados;
+        private System.Windows.Forms.Button btnHistorial;
+        private System.Windows.Forms.Button btnMostrarCola;
+        private System.Windows.Forms.Button btnProcesar;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lbl_Resgitrar1;
-        private System.Windows.Forms.TextBox txtBox_TipoMaterial;
-        private System.Windows.Forms.GroupBox grpRegistrar1;
+        private System.Windows.Forms.TextBox txtTipo;
+        private System.Windows.Forms.GroupBox grpRegistrar;
+        private System.Windows.Forms.TextBox txtSalida;
+        private System.Windows.Forms.Button btnRegistrar;
+        private System.Windows.Forms.TextBox txtNombre;
     }
 }
 

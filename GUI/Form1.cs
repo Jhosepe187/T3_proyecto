@@ -15,21 +15,28 @@ namespace GUI
     {
         Cola cola = new Cola();
         Arbol Arbol = new Arbol();
-        Pila Pila = new Pila(); 
+        Pila Pila = new Pila();
         public Form1()
         {
             InitializeComponent();
-            grpRegistrar1.Visible = false;
+            grpRegistrar.Visible = false;
+            //txtSalida.Visible = false;
+        }
+
+        private void btnRegistrarMaterial_Click(object sender, EventArgs e)
+        {
+            grpRegistrar.Visible = true;
+            txtSalida.Visible = false;
 
         }
 
-        private void btton_RegistrarMaterial_Click(object sender, EventArgs e)
+        private void btnRegistrar_Click(object sender, EventArgs e)
         {
-            grpRegistrar1.Visible = true;
-            int tipoNum = int.Parse(txtBox_TipoMaterial.Text);
-            if (!int.TryParse(txtBox_TipoMaterial.Text, out tipoNum) || tipoNum < 1 || tipoNum > 4)
+
+            int tipoNum;
+            if (!int.TryParse(txtTipo.Text, out tipoNum) || tipoNum < 1 || tipoNum > 4)
             {
-                MessageBox.Show("Tipo inválido. Operación cancelada.");
+                MessageBox.Show("Ingrese un número válido (1-4).");
                 return;
             }
 
@@ -52,18 +59,102 @@ namespace GUI
                     tipoTexto = "Desconocido";
                     break;
             }
-            grpRegistrar1.Visible = false;
 
-            Console.Write("Ingrese el nombre del material: ");
-            string nombre = Console.ReadLine();
+            string nombre = txtNombre.Text.Trim();
+            if (string.IsNullOrEmpty(nombre))
+            {
+                MessageBox.Show("Ingrese un nombre para el material.");
+                return;
+            }
 
             Material nuevo = new Material(tipoTexto, nombre);
             cola.Encolar(nuevo);
 
-            Console.WriteLine($"Material '{nombre}' de tipo '{tipoTexto}' registrado correctamente.");
+            txtSalida.Visible = true;
+            txtSalida.Text = $"✅ Material '{nombre}' de tipo '{tipoTexto}' registrado correctamente.";
+            grpRegistrar.Visible = false;
+            txtTipo.Clear();
+            txtNombre.Clear();
 
         }
 
-       
+        private void btnMostrarCola_Click(object sender, EventArgs e)
+        {
+          
+
+            if (cola.EsVacio())
+            {
+                txtSalida.Text = "No hay materiales en la cola.";
+                return;
+            }
+
+            Nodo aux = cola.frente;
+            while (aux != null)
+            {
+                txtSalida.AppendText(aux.dato.ToString() + Environment.NewLine);
+                aux = aux.sig;
+            }
+           
+        }
+
+        private void btnProcesar_Click(object sender, EventArgs e)
+        {
+            
+            if (cola.EsVacio())
+            {
+                txtSalida.Text = "No hay materiales en la cola para procesar.";
+                return;
+            }
+
+          
+            while (!cola.EsVacio())
+            {
+                Material m = cola.Desencolar();
+                Arbol.Insertar(m);
+                Pila.Apilar(m);
+                txtSalida.AppendText($"Procesado: {m}\r\n");
+            }
+
+            txtSalida.AppendText("\nTodos los materiales han sido clasificados y guardados en el historial.");
+          
+        }
+
+        private void btnClasificados_Click(object sender, EventArgs e)
+        {
+   
+            MostrarArbolEnOrden(Arbol.raiz_principal);
+        }
+
+        private void MostrarArbolEnOrden(Nodo raiz)
+        {
+            
+          
+            if (raiz != null)
+            {
+                MostrarArbolEnOrden(raiz.izq);
+                txtSalida.AppendText(raiz.dato.ToString() + Environment.NewLine);
+                MostrarArbolEnOrden(raiz.der);
+            }
+          
+        }
+
+        private void btnHistorial_Click(object sender, EventArgs e)
+        {
+
+           
+            Nodo aux = Pila.cima;
+            if (aux == null)
+            {
+                txtSalida.Text = "No hay historial disponible.";
+                return;
+            }
+
+            while (aux != null)
+            {
+                txtSalida.AppendText(aux.dato.ToString() + Environment.NewLine);
+                aux = aux.sig;
+            }
+         
+        }
     }
 }
