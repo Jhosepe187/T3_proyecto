@@ -33,6 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -78,6 +79,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Clases\Clases.csproj">
+      <Project>{b70ae8f9-44e4-441e-b1dd-8dd4a7c258c8}</Project>
+      <Name>Clases</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ejecucion\Ejecucion.csproj">
+      <Project>{4f6e16be-1246-44c3-8108-993afabf886d}</Project>
+      <Name>Ejecucion</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
