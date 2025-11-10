@@ -21,7 +21,7 @@ namespace GUI
         {
             InitializeComponent();
             grpRegistrar.Visible = false;
-            txtSalida.Visible = false; // Inicialmente oculto
+            txtSalida.Visible = false; 
         }
 
         private void btnRegistrarMaterial_Click(object sender, EventArgs e)
@@ -32,8 +32,8 @@ namespace GUI
 
         private void btnProcesar_Click(object sender, EventArgs e)
         {
-            txtSalida.Visible = true; // Hacer visible el TextBox
-            txtSalida.Text = ""; // Limpiar el texto antes de procesar y mostrar
+            txtSalida.Visible = true;
+            txtSalida.Text = "";
             if (cola.EsVacio())
             {
                 txtSalida.Text = "No hay materiales en la cola para procesar.";
@@ -51,8 +51,8 @@ namespace GUI
 
         private void btnMostrarCola_Click(object sender, EventArgs e)
         {
-            txtSalida.Visible = true; // Hacer visible el TextBox
-            txtSalida.Text = ""; // Limpiar el texto antes de mostrar
+            txtSalida.Visible = true;
+            txtSalida.Text = ""; 
             if (cola.EsVacio())
             {
                 txtSalida.Text = "No hay materiales en la cola.";
@@ -68,8 +68,8 @@ namespace GUI
 
         private void btnClasificados_Click(object sender, EventArgs e)
         {
-            txtSalida.Visible = true; // Hacer visible el TextBox
-            txtSalida.Text = ""; // Limpiar el texto antes de mostrar
+            txtSalida.Visible = true; 
+            txtSalida.Text = ""; 
             if (arbol.raiz_principal == null)
             {
                 txtSalida.Text = "No hay materiales clasificados.";
@@ -90,8 +90,8 @@ namespace GUI
 
         private void btnHistorial_Click(object sender, EventArgs e)
         {
-            txtSalida.Visible = true; // Hacer visible el TextBox
-            txtSalida.Text = ""; // Limpiar el texto antes de mostrar
+            txtSalida.Visible = true; 
+            txtSalida.Text = ""; 
             Nodo aux = pila.cima;
             if (aux == null)
             {
